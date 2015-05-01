@@ -34,7 +34,8 @@ gulp.task('script', function(){
 	gulp.src([
 		'resources/scripts/app.js',
 		'resources/scripts/controllers/TimeEntry.js',
-		'resources/scripts/services/time.js'])
+		'resources/scripts/services/time.js',
+		'resources/scripts/services/user.js'])
 	.pipe(uglify({mangle: false}))
 	.pipe(concat('app.js'))
 	.pipe(gulp.dest('public/js/'));
@@ -67,6 +68,7 @@ gulp.task('watch', function(){
 	gulp.watch('resources/scripts/app.js', ['script']);
 	gulp.watch('resources/scripts/controllers/TimeEntry.js', ['script']);
 	gulp.watch('resources/scripts/services/time.js', ['script']);
+	gulp.watch('resources/scripts/services/user.js', ['script']);
 });
 
 gulp.task('default', ['scriptLibs','cssLibs', 'watch']);

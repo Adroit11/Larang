@@ -2,22 +2,10 @@
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-use App\Transformers\TimeEntryTransformer;
-use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Request;
 use App\TimeEntry;
-use Input;
 
-class TimeEntryController extends ApiController {
-
-	protected $timeEntryTransformer;
-
-	/**
-	 * Create a new instance of TimeEntryController
-	 */
-	public function __construct(TimeEntryTransformer $timeEntryTransformer)
-	{
-		$this->timeEntryTransformer = $timeEntryTransformer;
-	}
+class TimeEntryController extends Controller {
 
 	/**
 	 * Display a listing of the resource.
@@ -25,16 +13,10 @@ class TimeEntryController extends ApiController {
 	 * @return Response
 	 */
 	public function index()
-	{	
-		$limit = Input::get('limit') ? : 5;
+	{
+		$timeEntries = TimeEntry::with('user')->get();
 
-		$timeEntries = TimeEntry::paginate($limit);
-
-		return $this->responseWithPagination($timeEntries, [
-
-			'data' => $this->timeEntryTransformer->transformCollection($timeEntries->all())
-
-		]);
+		return $timeEntries;
 	}
 
 	/**
@@ -54,7 +36,13 @@ class TimeEntryController extends ApiController {
 	 */
 	public function store()
 	{
-		//
+		$data = Request::all();
+
+		$timeEntry =  new TimeEntry();
+
+		$timeEntry->fill($data);
+
+		$timeEntry->save();
 	}
 
 	/**

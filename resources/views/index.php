@@ -11,8 +11,6 @@
     <link rel="stylesheet" href="css/libs.css">
     <link rel="stylesheet" href="css/app.css">
    
-
-    <!-- endbuild -->
   </head>
   <body ng-app="timeTracker" ng-controller="TimeEntry as vm">
     <nav class="navbar navbar-inverse navbar-fixed-top">
@@ -57,10 +55,16 @@
               </div>
             
           </div>
+         
 
           <div class="col-lg-6">
             <div class="time-entry-comment">
               <form>
+                <div class="form-group">
+                  <select name="user" class="form-control" ng-model="vm.timeEntryUser" ng-options="user.first_name + ' ' + user.last_name for user in vm.users">
+                      <option value="">-- Select a user --</option>
+                  </select>
+                </div>
                  <div class="form-group">
                 <textarea class="form-control" ng-model="vm.comment" rows="4" placeholder="Enter comment"></textarea>
                 </div>
@@ -77,7 +81,7 @@
           <div class="panel panel-default" ng-repeat="time in vm.timeEntries">
             <div class="panel-body">
               <div class="col-lg-8">
-                <h4><i class="glyphicon glyphicon-user"></i>{{ time.user_firstname}} {{ time.user_lastname }}</h4>
+                <h4><i class="glyphicon glyphicon-user"></i>{{ time.user.first_name}} {{ time.user.last_name }}</h4>
                   <p><i class="glyphicon glyphicon-pencil"></i>{{ time.comment }}</p>
               </div>
               <div class="col-lg-4">

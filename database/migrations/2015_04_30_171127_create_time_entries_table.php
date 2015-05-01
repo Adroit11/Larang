@@ -15,7 +15,7 @@ class CreateTimeEntriesTable extends Migration {
 		Schema::create('time_entries', function(Blueprint $table)
 		{
 			$table->increments('id');
-			$table->integer('user_id')->unsigned;
+			$table->integer('user_id')->unsigned();
 			$table->dateTime('start_time');
 			$table->dateTime('end_time');
 			$table->text('comment')->nullable();
