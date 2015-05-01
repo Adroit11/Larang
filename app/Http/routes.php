@@ -1,6 +1,9 @@
 <?php
 
-Route::get('/', function(){
+Route::group(['prefix' => 'api/v1'], function()
+{
+	Route::resource('time', 'TimeEntryController');
 
-	return view('index');
+	Route::resource('user', 'UserController');
+
 });
