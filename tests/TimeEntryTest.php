@@ -1,4 +1,6 @@
-<?php 
+<?php
+
+use App\TimeEntry; 
 
 use Laracasts\TestDummy\Factory;
 
@@ -25,6 +27,11 @@ class TimeEntryTest extends ApiTester
 		$this->getJson('api/v1/time', 'POST', $attributes);
 
 		$this->assertResponseStatus(200);
+
+		$timeEntry = TimeEntry::first();
+
+		$this->assertEquals($attributes['comment'], $timeEntry->comment);
+
 	}
 
 	public function testUpdatingATimeEntryGivenValidParameters()

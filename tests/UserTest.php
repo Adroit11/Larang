@@ -13,7 +13,7 @@ class UserTest extends ApiTester
 	{
 		$users = Factory::times(5)->create('App\User');
 		
-		$this->getJson('api/v1/time');
+		$this->getJson('api/v1/user');
 
 		$this->assertResponseOk();	
 	}

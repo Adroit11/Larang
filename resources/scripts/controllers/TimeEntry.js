@@ -120,7 +120,7 @@
 
                 //reset clock and out in time picker
                 vm.clockIn = moment();
-                vm.clockOut=moment();
+                vm.clockOut = moment();
 
                 // Deselect the user
                 vm.timeEntryUser = "";
