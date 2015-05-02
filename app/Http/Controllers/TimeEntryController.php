@@ -75,7 +75,13 @@ class TimeEntryController extends Controller {
 	 */
 	public function update($id)
 	{
-		//
+		$timeEntry = TimeEntry::find($id);
+
+		$data = Request::all();
+
+		$timeEntry->fill($data);
+
+		$timeEntry->save();
 	}
 
 	/**
@@ -86,7 +92,9 @@ class TimeEntryController extends Controller {
 	 */
 	public function destroy($id)
 	{
-		//
+		$timeEntry = TimeEntry::find($id);
+
+		$timeEntry->delete();
 	}
 
 }

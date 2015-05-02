@@ -3,6 +3,7 @@ var gulp 	= require('gulp'),
 	sass	= require('gulp-ruby-sass'),
 	concat	= require('gulp-concat'),
 	minify	= require('gulp-clean-css'),
+	jshint	= require('gulp-jshint'),
 	prefix	= require('gulp-autoprefixer');
 
 
@@ -35,11 +36,25 @@ gulp.task('script', function(){
 		'resources/scripts/app.js',
 		'resources/scripts/controllers/TimeEntry.js',
 		'resources/scripts/services/time.js',
-		'resources/scripts/services/user.js'])
+		'resources/scripts/services/user.js'])	
 	.pipe(uglify({mangle: false}))
 	.pipe(concat('app.js'))
 	.pipe(gulp.dest('public/js/'));
 
+});
+
+//lint Task
+//Lint js
+gulp.task('lint', function(){
+	gulp.src([
+		'resources/scripts/app.js',
+		'resources/scripts/controllers/TimeEntry.js',
+		'resources/scripts/services/time.js',
+		'resources/scripts/services/user.js'])
+	.pipe(jshint())
+  	.pipe(jshint.reporter('jshint-stylish'))
+  	.pipe(jshint.reporter('fail'))
+  	.on('error', errorLog);
 });
 
 

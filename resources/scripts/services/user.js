@@ -1,5 +1,5 @@
 (function(){
-	'user strict';
+	'use strict';
 
 	angular
 	.module('timeTracker')
@@ -16,12 +16,12 @@
 				console.log(error);
 
 			});
-		}
+		}//end getUsers
 
 		return {
 
 			getUsers: getUsers
 		}
-	}
+	}//end user
 
 })();
