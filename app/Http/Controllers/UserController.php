@@ -3,7 +3,7 @@
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\User;
-use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Request;
 
 class UserController extends Controller {
 
@@ -62,14 +62,20 @@ class UserController extends Controller {
 	}
 
 	/**
-	 * Update the specified resource in storage.
+	 * Update the specified user in storage.
 	 *
 	 * @param  int  $id
 	 * @return Response
 	 */
 	public function update($id)
 	{
-		//
+		$user = User::find($id);
+
+		$data = Request::all();
+
+		$user->fill($data);
+
+		$user->save();
 	}
 
 	/**

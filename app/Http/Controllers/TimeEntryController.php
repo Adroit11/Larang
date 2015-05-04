@@ -68,7 +68,7 @@ class TimeEntryController extends Controller {
 	}
 
 	/**
-	 * Update the specified resource in storage.
+	 * Update the specified timeEntry in storage.
 	 *
 	 * @param  int  $id
 	 * @return Response

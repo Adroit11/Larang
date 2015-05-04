@@ -20,8 +20,10 @@ function errorLog(error)
 gulp.task('scriptLibs', function(){
 	gulp.src([
 		'bower_components/angular/angular.js',
+		'bower_components/angular-route/angular-route.js',
 		'bower_components/angular-bootstrap/ui-bootstrap-tpls.js', 
 		'bower_components/angular-resource/angular-resource.js',
+		'bower_components/underscore/underscore.js',
 		'bower_components/moment/moment.js'])
 	.pipe(uglify())
 	.pipe(concat('libs.js'))
@@ -34,7 +36,12 @@ gulp.task('scriptLibs', function(){
 gulp.task('script', function(){
 	gulp.src([
 		'resources/scripts/app.js',
+		'resources/scripts/config/routes.js',
+		'resources/scripts/controllers/NavController.js',
 		'resources/scripts/controllers/TimeEntry.js',
+		'resources/scripts/controllers/User.js',
+		'resources/scripts/controllers/EditUserModalInstance.js',
+		'resources/scripts/services/underscore.js',		
 		'resources/scripts/services/time.js',
 		'resources/scripts/services/user.js'])	
 	.pipe(uglify({mangle: false}))
@@ -48,7 +55,11 @@ gulp.task('script', function(){
 gulp.task('lint', function(){
 	gulp.src([
 		'resources/scripts/app.js',
+		'resources/scripts/config/routes.js',
+		'resources/scripts/controllers/NavController.js',
 		'resources/scripts/controllers/TimeEntry.js',
+		'resources/scripts/controllers/EditUserModalInstance.js',
+		'resources/scripts/services/underscore.js',		
 		'resources/scripts/services/time.js',
 		'resources/scripts/services/user.js'])
 	.pipe(jshint())
@@ -81,7 +92,12 @@ gulp.task('sass', function(){
 gulp.task('watch', function(){
 	gulp.watch('resources/assets/sass/app.scss', ['sass']);
 	gulp.watch('resources/scripts/app.js', ['script']);
+	gulp.watch('resources/scripts/config/routes.js', ['script']);
+	gulp.watch('resources/scripts/controllers/NavController.js', ['script']);
 	gulp.watch('resources/scripts/controllers/TimeEntry.js', ['script']);
+	gulp.watch('resources/scripts/controllers/User.js', ['script']);
+	gulp.watch('resources/scripts/controllers/EditUserModalInstance.js', ['script']);
+	gulp.watch('resources/scripts/services/underscore.js', ['script']);
 	gulp.watch('resources/scripts/services/time.js', ['script']);
 	gulp.watch('resources/scripts/services/user.js', ['script']);
 });

@@ -6,8 +6,20 @@
 	.factory('user', user);
 
 	function user($resource){
+		 // ngResource call to our static data
+		var User = $resource('api/v1/user/:id', {}, {
+			update: {
+				method: 'PUT'
+			}
+		});//end User
 
-		var User = $resource('api/v1/user');
+		function updateUser(data){
+			return User.update({id:data.id}, data).$promise.then(function(success){
+				console.log(success);
+			}, function(error){
+				console.log(error);
+			});
+		}//end updateUser
 
 		function getUsers(){
 			return User.query().$promise.then(function(results){
@@ -20,7 +32,8 @@
 
 		return {
 
-			getUsers: getUsers
+			getUsers: getUsers,
+			updateUser: updateUser
 		}
 	}//end user
 

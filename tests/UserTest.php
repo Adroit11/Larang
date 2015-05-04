@@ -17,4 +17,17 @@ class UserTest extends ApiTester
 
 		$this->assertResponseOk();	
 	}
+
+	public function testUpdatingAUserGivenValidParameters()
+	{
+		$user = Factory::create('App\User');
+
+		$this->getJson('api/v1/user/'.$user->id, 'PUT', [
+			'first_name' => 'newfirstname',
+			'last_name' => 'newlastname'
+		]);
+
+		$this->assertResponseStatus(200);
+	}
+	
 }
