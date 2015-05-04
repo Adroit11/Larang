@@ -1,7 +1,7 @@
 {
-	"name": "laravel/laravel",
-	"description": "The Laravel Framework.",
-	"keywords": ["framework", "laravel"],
+	"name": "Larang",
+	"description": "Activity Tracking App.",
+	"keywords": ["larang", "laravel"],
 	"license": "MIT",
 	"type": "project",
 	"require": {
