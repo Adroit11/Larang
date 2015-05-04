@@ -2,7 +2,7 @@
   <div class="panel-body">
   <!-- user list -->
   <div class="row">   
-      <div class="col-lg-3" ng-repeat="user in usr.users">
+      <div class="col-lg-3 user-block" ng-repeat="user in usr.users">
       <div class="media">
         <div class="media-left">          
           <i class="glyphicon glyphicon-user"></i>          
@@ -10,8 +10,7 @@
         <div class="media-body">
           <h4 class="media-heading">{{ user.first_name}} {{ user.last_name}}</h4>
           <p>{{ user.email }}</p>
-          <button ng-click="usr.openEditUserModal('sm', user)" class="btn btn-default" type="button">Edit</button>
-          <button class="btn btn-default" type="submit">Remove</button>
+          <button ng-click="usr.openEditUserModal('sm', user)" class="btn btn-default btn-sm" type="button">Edit</button>          
         </div>
       </div>
     </div>      

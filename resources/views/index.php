@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>LarangTracking</title>
+    <title>Larang</title>
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
 
     <!-- build:css styles/main.css -->    
@@ -22,7 +22,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">LarangTracking</a>
+          <div class="navbar-brand">Larang</div>
         </div>
         <div id="navbar" class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
@@ -42,7 +42,7 @@
     </div>
     <div class="footer">
       <div class="container">
-        <p>Larang Time Tracker</p>
+        <p class="text-muted"><small>Larang Activity Tracker</small></p>
       </div>
         
       </div>
