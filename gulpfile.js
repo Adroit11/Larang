@@ -72,7 +72,8 @@ gulp.task('lint', function(){
 
 gulp.task('cssLibs', function(){
 	gulp.src([
-		'bower_components/bootstrap/dist/css/bootstrap.css'
+		'bower_components/bootstrap/dist/css/bootstrap.css',
+		'public/css/fonts/logo.css',
 		])
 	.pipe(minify())
 	.pipe(concat('libs.css'))

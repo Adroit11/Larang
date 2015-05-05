@@ -25,9 +25,9 @@
                   </select>
                 </div>
                  <div class="form-group">
-                <textarea class="form-control" ng-model="vm.comment" rows="4" placeholder="Enter comment"></textarea>
+                <textarea class="form-control" ng-model="vm.comment" rows="4" placeholder="Enter description"></textarea>
                 </div>
-                <button class="btn btn-default" ng-click="vm.logNewTime()">Log Time</button>
+                <button class="btn btn-default" ng-click="vm.logNewTime()">Save</button>
               </form> 
             </div>            
           </div>
@@ -69,7 +69,7 @@
 
                   <!-- Editing section -->
                   <div class="row edit-time-entry" ng-show="showEditDialog === true">
-                    <h4>Edit Time Entry</h4>
+                    <h4>Edit Activity</h4>
                     <div class="time-entry">
                         <div class="timepicker">
                             <span class="timepicker-title label label-primary">Clock In</span>
@@ -91,8 +91,8 @@
                         <textarea rows="3" ng-model="time.comment" class="form-control">{{time.comment}}</textarea>
                     </div>
                     <div class="edit-controls">
-                        <button class="btn btn-primary btn-sm" ng-click="vm.updateTimeEntry(time)">Save</button>
-                        <button class="btn btn-danger btn-sm" ng-click="showEditDialog = false">Close</button>
+                        <button class="btn btn-success btn-sm" ng-click="vm.updateTimeEntry(time)">Save</button>
+                        <button class="btn btn-primary btn-sm" ng-click="showEditDialog = false">Close</button>
                     </div>                            
                 </div>
                 <!-- End editing section -->
@@ -106,7 +106,7 @@
           <div class="panel panel-default">
             <div class="panel-body">
               
-                <h1><i class="glyphicon glyphicon-time"></i> Total Time</h1>
+                <h2><i class="glyphicon glyphicon-time"></i> Total duration:</h2>
                 <h1><span class="label label-primary">{{vm.totalTime.hours}} hours</span></h1>
                 <h3><span class="label label-default">{{vm.totalTime.minutes}} minutes</span></h3>
             

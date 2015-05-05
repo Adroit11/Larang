@@ -22,11 +22,11 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <div class="navbar-brand">Larang</div>
+          <div class="navbar-brand"><h1>Larang</h1></div>
         </div>
         <div id="navbar" class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
-            <li ng-class="{active: isActive('/time')}"><a href="#/time">Activity Tracker</a></li>
+            <li ng-class="{active: isActive('/time')}"><a href="#/time">Activities</a></li>
             <li ng-class="{active: isActive('/users')}"><a href="#/users">Users</a></li>
           </ul>
         </div><!--/.nav-collapse -->
