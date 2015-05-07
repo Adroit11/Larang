@@ -17,10 +17,13 @@ class UsersTableSeeder extends Seeder
 		foreach (range(1, 10) as $index) {
 		
 			User::create([
-				'first_name' => $faker->firstname, 
-				'last_name' => $faker->lastname,
-				'email' => $faker->unique()->email,
-				'password' => bcrypt('secret')
+				'firstname' 	=> 	$faker->firstName,
+				'lastname'		=> 	$faker->lastName,
+				'email'			=>	$faker->unique()->email,
+				'password'		=> 	bcrypt('secret'),
+				'gender'		=>	$faker->randomElement(['M','F']),
+				'birthday'		=>	$faker->date,
+				'profileimage'	=>	$faker->imageUrl($width = 180, $height = 180)
 			]);
 		}
 	}

@@ -20,7 +20,7 @@
             <div class="time-entry-comment">
               <form>
                 <div class="form-group">
-                  <select name="user" class="form-control" ng-model="vm.timeEntryUser" ng-options="user.first_name + ' ' + user.last_name for user in vm.users">
+                  <select name="user" class="form-control" ng-model="vm.timeEntryUser" ng-options="user.firstname + ' ' + user.lastname for user in vm.users">
                       <option value="">-- Select a user --</option>
                   </select>
                 </div>
@@ -43,7 +43,7 @@
             <div class="panel-body">
       
               <div class="col-lg-8">
-                <h4><i class="glyphicon glyphicon-user"></i>{{ time.user.first_name}} {{ time.user.last_name }}</h4>
+                <h4><img class="profile-image-small" ng-src="{{time.user.profileimage}}" alt="{{ time.user.firstname }}" />{{ time.user.firstname}} {{ time.user.lastname }}</h4>
                   <p><i class="glyphicon glyphicon-pencil"></i>{{ time.comment }}</p>
               </div>
              
@@ -82,7 +82,7 @@
                    </div>
                    <div class="col-sm-6">
                         <h5>User</h5>
-                        <select name="user" class="form-control" ng-model="time.user" ng-options="user.first_name + ' ' + user.last_name for user in vm.users track by user.id">
+                        <select name="user" class="form-control" ng-model="time.user" ng-options="user.firstname + ' ' + user.lastname for user in vm.users track by user.id">
                             <option value="user.id"></option>
                         </select>
                     </div>
