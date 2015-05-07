@@ -49,8 +49,8 @@
 			function updateUser(userToUpdate){
 				var updatedUser = {
 					"id":userToUpdate.id,
-					"firstname":userToUpdate.first_name,
-					"lastname":userToUpdate.last_name,
+					"firstname":userToUpdate.firstname,
+					"lastname":userToUpdate.lastname,
 					"email":userToUpdate.email
 				}
 

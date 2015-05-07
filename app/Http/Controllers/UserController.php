@@ -3,7 +3,7 @@
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\User;
-use Illuminate\Support\Facades\Request;
+use Illuminate\Http\Request;
 
 class UserController extends Controller {
 
@@ -67,13 +67,15 @@ class UserController extends Controller {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function update($id)
+	public function update(Request $request, $id)
 	{
 		$user = User::find($id);
 
-		$data = Request::all();
+		$user->firstname = $request->input('firstname');
+		
+		$user->lastname = $request->input('lastname');
 
-		$user->fill($data);
+		$user->email = $request->input('email');
 
 		$user->save();
 	}
